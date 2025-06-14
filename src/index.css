@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --background: 222.2 84% 4.9%;
+  --foreground: 142 76% 90%;
+  --card: 222.2 84% 8%;
+  --card-foreground: 142 76% 90%;
+  --primary: 142 76% 60%;
+  --primary-foreground: 222.2 84% 4.9%;
+  --border: 217.2 32.6% 17.5%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 142 76% 60%;
+  --accent: 142 76% 20%;
+  --accent-foreground: 222.2 84% 90%;
+  --destructive: 0 62.8% 40%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 151 55% 45%;
+  --success-foreground: 0 0% 100%;
+  --info: 201 96% 32%;
+  --info-foreground: 0 0% 100%;
+  --warning: 43 96% 56%;
+  --warning-foreground: 0 0% 20%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-weight: 700;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 #10b981, -0.05em -0.025em 0 #ef4444, 0.025em 0.05em 0 #3b82f6;
+  }
+  15% {
+    text-shadow: 0.05em 0 0 #10b981, -0.05em -0.025em 0 #ef4444, 0.025em 0.05em 0 #3b82f6;
+  }
+  16% {
+    text-shadow: -0.05em -0.025em 0 #10b981, 0.025em 0.025em 0 #ef4444, -0.05em -0.05em 0 #3b82f6;
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 #10b981, 0.025em 0.025em 0 #ef4444, -0.05em -0.05em 0 #3b82f6;
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 #10b981, 0.05em 0 0 #ef4444, 0 -0.05em 0 #3b82f6;
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 #10b981, 0.05em 0 0 #ef4444, 0 -0.05em 0 #3b82f6;
+  }
+  100% {
+    text-shadow: -0.025em 0 0 #10b981, -0.025em -0.025em 0 #ef4444, -0.025em -0.05em 0 #3b82f6;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-glitch {
+  animation: glitch 1s linear infinite;
+}
+
+/* Hover effects for cards */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #10b981;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #059669;
+}
+
+/* Terminal-like effects */
+.terminal-cursor::after {
+  content: '█';
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Matrix-like background effect */
+.matrix-bg {
+  background-image: 
+    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Glowing border effect */
+.glow-border {
+  box-shadow: 0 0 5px rgba(16, 185, 129, 0.3);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.glow-border:hover {
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+}
+
+/* Scan line effect */
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.scan-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent);
+  animation: scan 2s infinite;
+}
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid #10b981;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

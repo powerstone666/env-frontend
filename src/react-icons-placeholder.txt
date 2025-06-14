@@ -1,0 +1,1 @@
+// This file is required for react-icons to work. No code needed here, just a placeholder for dependency installation.
