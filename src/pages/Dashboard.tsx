@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { FaArrowLeft, FaEye, FaCheckCircle, FaClock, FaShieldAlt, FaTerminal, FaSyncAlt, FaDatabase, FaMicrochip, FaChartBar } from 'react-icons/fa';
+import { FaArrowLeft, FaEye, FaCheckCircle, FaClock, FaShieldAlt,  FaSyncAlt, FaDatabase, FaMicrochip, FaChartBar } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { 
@@ -98,11 +98,6 @@ const Dashboard = () => {
 
   // Filter to show only valid keys and those still processing (null)
   const validKeys = data.filter(item => item.isValid === true || item.isValid === null);
-
-  const getStatusText = (isValid: boolean | null) => {
-    if (isValid === true) return 'Verified';
-    return 'Processing';
-  };
 
   // Use the same vendor color map as LandingPage for consistency
   const vendorColors: Record<string, string> = {

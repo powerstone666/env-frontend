@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import {  AnimatePresence } from 'framer-motion';
 import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
 import { Toaster } from './components/ui/sonner';

@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { 
   FaShieldAlt, 
-  FaSearch, 
+
   FaBolt, 
   FaGithub, 
   FaExclamationTriangle, 
@@ -13,9 +13,6 @@ import {
   FaChevronRight,
   FaRobot,
   FaChartLine,
-  FaDatabase,
-  FaMicrochip,
-  FaLock,
   FaEye,
   FaCode,
   FaSkull,
